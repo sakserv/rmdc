@@ -1,7 +1,7 @@
-FROM nginx
+FROM hortonworks/ycloud-debian7:0.2
 
 RUN usermod -u 99 nobody && groupmod -g 99 nogroup
-RUN apt-get update && apt-get install -y php5-common php5-cli php5-fpm
+RUN apt-get update && apt-get install -y nginx php5-common php5-cli php5-fpm net-tools openssl libssl-dev
 
 COPY html /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
